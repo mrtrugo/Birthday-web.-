@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday ✨</title>
+
+<style>
+/* ===============================
+   GLOBAL DESIGN SYSTEM (2025)
+================================ */
+:root {
+  --bg-main: #0b0f1a;
+  --bg-card: rgba(255,255,255,0.06);
+  --text-primary: #f5f7ff;
+  --text-secondary: #aab0ff;
+  --accent-1: #7f5cff;
+  --accent-2: #00ffd5;
+  --glass-border: rgba(255,255,255,0.15);
+  --blur: blur(16px);
+  --radius-xl: 22px;
+  --transition: all 0.6s cubic-bezier(.22,1,.36,1);
+  --shadow-soft: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: radial-gradient(1200px 600px at top right, #141a3a, var(--bg-main));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* ===============================
+   BACKGROUND PARTICLES
+================================ */
+.bg-orb {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: 0;
+  animation: float 18s infinite alternate ease-in-out;
+}
+
+.orb-1 { background: var(--accent-1); top: -100px; left: -100px; }
+.orb-2 { background: var(--accent-2); bottom: -120px; right: -120px; animation-delay: 6s; }
+
+@keyframes float {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-40px) translateX(40px); }
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  max-width: 920px;
+  width: 100%;
+  background: var(--bg-card);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 60px;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+h1, h2 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #d6d9ff;
+}
+
+.highlight {
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: #050816;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: 0 10px 40px rgba(127,92,255,0.35);
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(0,255,213,0.35);
+}
+
+/* ===============================
+   TYPEWRITER
+================================ */
+.type {
+  border-right: 2px solid var(--accent-2);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* ===============================
+   HEART ANIMATION
+================================ */
+.heart {
+  position: fixed;
+  font-size: 22px;
+  animation: rise 6s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-600px) scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: #8a90ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-orb orb-1"></div>
+<div class="bg-orb orb-2"></div>
+
+<!-- SECTION 1: INTRO -->
+<section>
+  <div class="card show">
+    <h1>Hey <span class="highlight">You</span> 🌙</h1>
+    <p>
+      Today is not just another date on the calendar.  
+      It is the kind of day that deserves to be paused, felt, and remembered.
+    </p>
+    <p style="margin-top:20px;">
+      So take a breath.  
+      This little space on the internet exists for one reason only — <strong>you</strong>.
+    </p>
+    <a href="#section2" class="btn">Start the Journey</a>
+  </div>
+</section>
+
+<!-- SECTION 2: MESSAGE -->
+<section id="section2">
+  <div class="card">
+    <h2>
+      <span id="typeText" class="type"></span>
+    </h2>
+    <p style="margin-top:30px;">
+      You have this rare ability to make moments lighter and days better,  
+      even when you do not realize it yourself.
+    </p>
+    <p style="margin-top:16px;">
+      If today is about celebrating anything,  
+      it is about celebrating the person you already are — and the future you are walking toward.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 3: EMOTIONAL PEAK -->
+<section>
+  <div class="card">
+    <h2>One Honest Truth</h2>
+    <p style="margin-top:24px;">
+      The world moves fast. People come and go.  
+      But some people leave a permanent mark without even trying.
+    </p>
+    <p style="margin-top:16px;">
+      You are that kind of person.
+    </p>
+    <p style="margin-top:16px;">
+      I hope this year gives you confidence where you had doubts,  
+      peace where you felt pressure,  
+      and happiness that feels effortless.
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 4: CLOSING -->
+<section>
+  <div class="card">
+    <h2>Happy Birthday ✨</h2>
+    <p style="margin-top:24px;">
+      Not just happy in the obvious way —  
+      but deeply, quietly, genuinely happy.
+    </p>
+    <p style="margin-top:16px;">
+      You deserve more than words,  
+      but today, let this be a reminder:
+    </p>
+    <p style="margin-top:16px;">
+      You matter. A lot.
+    </p>
+    <a href="#" class="btn" onclick="launchHearts()">Make a Wish</a>
+  </div>
+</section>
+
+<footer>
+  Made with intention · 2025
+</footer>
+
+<script>
+/* ===============================
+   SCROLL REVEAL
+================================ */
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+
+/* ===============================
+   TYPEWRITER EFFECT
+================================ */
+const text = "This page exists because you were born.";
+let index = 0;
+const speed = 70;
+const target = document.getElementById("typeText");
+
+function typeWriter() {
+  if (index < text.length) {
+    target.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+setTimeout(typeWriter, 800);
+
+/* ===============================
+   HEARTS
+================================ */
+function launchHearts() {
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '❤';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.bottom = '-20px';
+    heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+  }
+}
+</script>
+
+</body>
+</html>
